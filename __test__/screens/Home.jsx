@@ -4,7 +4,7 @@ import User from "../components/User";
 
 // const BASE_URL = "http://localhost:3000";
 const BASE_URL =
-  "https://6307-2001-448a-20a2-513-e42a-881f-5fa7-5a0b.ngrok-free.app";
+  "https://1cc8-2001-448a-20a0-e0bb-2d4d-71fa-a537-b48c.ngrok-free.app";
 export default function Home({ navigation }) {
   const [users, setUsers] = useState([]);
 
