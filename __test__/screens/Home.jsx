@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, Button, FlatList } from "react-native";
 import User from "../components/User";
 
 // const BASE_URL = "http://localhost:3000";
-const BASE_URL =
-  "https://1cc8-2001-448a-20a0-e0bb-2d4d-71fa-a537-b48c.ngrok-free.app";
+const BASE_URL = "https://12a7-27-50-29-117.ngrok-free.app";
+
 export default function Home({ navigation }) {
   const [users, setUsers] = useState([]);
 

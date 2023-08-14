@@ -10,34 +10,35 @@ const Tab = createBottomTabNavigator();
 export default function TabNavigator() {
   return (
     <Tab.Navigator
-      screenOptions={({ route }) => {
-        return {
-          headerShown: false,
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
-            if (route.name === "Dashboard") {
-              iconName = focused ? "ios-home" : "ios-home-outline";
-            } else if (route.name === "Settings") {
-              iconName = focused ? "ios-settings" : "ios-settings-outline";
-            }
-
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={"teal"} />;
-          },
-          // tabBarLabelStyle: { color: "teal" },
-          tabBarActiveTintColor: "teal",
-          tabBarInactiveTintColor: "gray",
-        };
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: "teal",
+        tabBarInactiveTintColor: "gray",
       }}
     >
       <Tab.Screen
         name="Dashboard"
         // component={Home}
         component={MainStack} // nested navigator
+        options={{
+          tabBarIcon: ({ focused, size, color }) => {
+            const iconName = focused ? "ios-home" : "ios-home-outline";
+            const colorIcon = focused ? "teal" : "grey";
+            return <Ionicons name={iconName} size={size} color={colorIcon} />;
+          },
+        }}
       />
-      {/* <Tab.Screen name="Detail" component={Detail} /> */}
-      <Tab.Screen name="Settings" component={Settings} />
+      <Tab.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          tabBarIcon: ({ focused, size, color }) => {
+            const iconName = focused ? "ios-settings" : "ios-settings-outline";
+            const colorIcon = focused ? "teal" : "grey";
+            return <Ionicons name={iconName} size={size} color={colorIcon} />;
+          },
+        }}
+      />
     </Tab.Navigator>
   );
 }
