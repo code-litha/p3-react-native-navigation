@@ -9,18 +9,20 @@ function MainStack() {
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={{
-        headerTintColor: "green",
+        headerTintColor: "blue",
+        // headerShown: false,
       }}
     >
       <Stack.Screen
+        name="Detail"
+        component={DetailScreen}
+        initialParams={{ id: 0, data: {} }}
+      />
+      <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={{
-          headerTintColor: "red",
-          // headerShown: false,
-        }}
+        options={{ title: "Overview", headerTintColor: "red" }}
       />
-      <Stack.Screen name="Detail" component={DetailScreen} />
     </Stack.Navigator>
   );
 }
