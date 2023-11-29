@@ -1,47 +1,45 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/HomeScreen";
+import MainStack from "./MainStack";
 import SettingsScreen from "../screens/SettingScreen";
 import { Ionicons } from "@expo/vector-icons";
-import MainStack from "./MainStack";
 
 const Tab = createBottomTabNavigator();
 
-export default function MainTab() {
+function MainTab() {
   return (
     <Tab.Navigator
-      screenOptions={{ tabBarActiveTintColor: "red", tabBarShowLabel: false }}
+      screenOptions={{
+        tabBarInactiveTintColor: "grey",
+        tabBarActiveTintColor: "blue",
+        tabBarShowLabel: false,
+      }}
     >
       <Tab.Screen
-        name="Dashboard"
+        name={"Dashboard"}
+        // component={HomeScreen}
         component={MainStack}
         options={{
           tabBarIcon: ({ focused, color, size }) => {
-            return (
-              <Ionicons
-                name="home"
-                color={focused ? "red" : "grey"}
-                size={size}
-              />
-            );
+            const iconName = focused ? "home" : "home-outline";
+            return <Ionicons name={iconName} color={color} size={size} />;
           },
           headerShown: false,
         }}
       />
       <Tab.Screen
-        name="Setting"
+        name={"Setting"}
         component={SettingsScreen}
         options={{
           tabBarIcon: ({ focused, color, size }) => {
-            return (
-              <Ionicons
-                name={"settings"}
-                color={focused ? "red" : "grey"}
-                size={size}
-              />
-            );
+            const iconName = focused ? "settings" : "settings-outline";
+
+            return <Ionicons name={iconName} color={color} size={size} />;
           },
         }}
       />
     </Tab.Navigator>
   );
 }
+
+export default MainTab;
