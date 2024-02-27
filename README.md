@@ -5,7 +5,6 @@
 - Navigation types
   - Stack Navigation
   - Tab Navigation
-  - Drawer Navigation
 - Moving Between screens
 - Passing params
 - Nested navigators
